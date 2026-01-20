@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://cdn.boxicons.com">
+  <link rel="preload" href="https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css" as="style">
+  <link href="https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="costum.css">
+</head>
+<body class="bg-linear-to-r from-blue-50 to-indigo-100">
+  
+  <div id="DataMenu" class="relative flex flex-col justify-center items-center">
+    <div id="ParentsData" class="mt-130 absolute  w-[95%] h-0 z-10 grid-cols-2 bg-white opacity-0 rounded-md transition-all duration-300 overflow-y-scroll overflow-x-hidden sm:w-[55%] md:w-[48%] lg:w-[35%] xl:w-[30%]">
+      <div id="CloseMenu" class="cursor-pointer absolute top-2 right-3 text-red-600 text-2xl"><i class='bx  bx-x'></i></div>
+      <div id="Judul" class="absolute top-3 left-6 flex justify-start items-start text-xl font-medium z-30"><p>Saved Quotes <span id="JumlahChild">(<p id="DataResult">0</p>/500)</span></p></div>
+      <div id="ContainerSavedData" class="mt-13 flex justify-center items-center">
+        <div id="Parents" class="grid grid-cols-2 gap-3">
+          <!-- <div class="relative mb-6 w-40 h-25 bg-gray-200 rounded-sm">
+            <div id="JudulSaveData" class="absolute top-1 left-2"><p id="NameData" class="text-base font-medium"></p></div>
+            <div id="OpenButtonData" class="absolute left-2 bottom-2"><button id="Open" class="cursor-pointer w-16 h-7 text-center text-base bg-emerald-500 text-white rounded-sm hover:bg-emerald-600">Open</button></div>
+            <div id="DeletButtonData" class="absolute right-4 bottom-2"><button id="Delet" class="cursor-pointer w-16 h-7 text-center text-base bg-red-500 text-white rounded-sm hover:bg-red-600">Delet</button></div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="navbar" class="relative flex flex-row">
+    <div class="absolute top-7  right-7">
+      <i id="Menu" class="cursor-pointer text-xl"><span class="bx  bx-menu"></span></i>
+    </div>
+  </div>
+
+  <div class="m-auto mt-36 relative w-[95%] h-60 flex bg-white shadow-lg rounded-lg sm:w-7/10 md:w-[55%] lg:w-[45%] xl:w-4/10 2xl:w-[30%]">
+    <div id="Output" class="absolute top-10 left-8">
+        <div class="flex items-center justify-center text-indigo-500 text-5xl"><i class='bx  bx-quote-right'></i><div id="word" class="w-[95%] text-[#364153] italic text-lg sm:w-9/10 md:w-8/10 lg:w-[85%] xl:w-[95%] 2xl:w-10/10">"The only way to do great work is to love what you do."</div></div>  
+        <div id="Author" class="absolute right-3 text-[#4A5565] text-sm">— Steve Jobs</div>
+    </div>
+    <div id="ContainerShowAndSaveAndShow" class="absolute left-5 bottom-6 flex flex- gap-2 sm:left-8">
+      <button id="RunQuote" class="cursor-pointer flex items-center justify-center leading-none w-16 font-medium text-white bg-emerald-600 rounded-sm hover:bg-emerald-700"><i class='text-md bx  bx-play'></i>Run</button>
+      <button id="GetQuote" class="cursor-pointer flex items-center justify-center leading-none font-medium p-3 text-center text-white bg-[#030213] text-sm rounded-sm hover:bg-[#0a0a2a]"><i id="Question" class='bx  bx-message-circle-question-mark'></i>Copy Quote</button>
+      <button id="Save" class="cursor-pointer flex items-center justify-center leading-none w-32 font-medium border border-solid rounded-sm text-base"><span class="bx bx-form"></span> Save Quote</button>
+    </div>
+  </div>
+  <!-- <section id="ContainerSave" class="">
+    <div id="DataSaved" class="">
+
+    </div>
+  </section> -->
+
+  <script src="script.js"></script>
+</body>
+</html>
