@@ -35,23 +35,31 @@ function checksizeData() {
 }
 
 const questionElement = document.getElementById("Question");
-let all_deletBtn;
 let buttons_Delet = 0;
 
 function delet() {
+  let all_deletBtn = document.querySelectorAll("#DeletData");
   all_deletBtn.forEach((btn) => {
-    btn.addEventListener("click", async function () {
-      let containerDivs = btn.parentElement.parentElement;
-      containerDivs.classList.remove("h-0");
-      await delay(100);
-      containerDivs.classList.add("opacity-0");
+    btn.onclick = async function() {
+      if(btn.disabled) return;
+      btn.disabled = true
+      const cardDelet = btn.closest(('#containerDiv')) ;
+      if(!cardDelet) return;
+      const parent = cardDelet.parentElement;
+      const index = Array.from(parent.parentElement.children).indexOf(parent);
+      cardDelet.classList.add("opacity-0")
       await delay(500);
-      containerDivs.remove();
-      let jumlahData = parentsContainer.children.length;
-      DataResult.textContent = jumlahData;
+      if(index !== -1) {
+        dataUser.splice(index,1);
+        localStorage.setItem('dataUser', JSON.stringify(dataUser))
+      }
+      cardDelet.remove()
+      DataResult.textContent = parentsContainer.children.length;
       localStorage.setItem("JumlahData", DataResult.textContent);
       localStorage.setItem("containerDiv", parentsContainer.innerHTML);
-    });
+
+      checksizeData();
+    }
   });
 }
 
@@ -84,7 +92,7 @@ let storage_ContainerDiv = localStorage.getItem("containerDiv") || null;
 
 if (storage_ContainerDiv !== null) {
   parentsContainer.innerHTML = storage_ContainerDiv;
-  all_deletBtn = document.querySelectorAll("#DeletData");
+  delet();
 }
 
 let dataUsers = localStorage.getItem("dataUser") || null;
@@ -268,24 +276,6 @@ closeMenu.addEventListener("click", function () {
   parentsData.classList.remove("h-96");
   parentsData.classList.add("opacity-0", "h-0");
 });
-
-if (!all_deletBtn) {
-  console.warn("502");
-} else if (all_deletBtn) {
-  all_deletBtn.forEach((btn) => {
-    btn.addEventListener("click", async function () {
-      let containerDivs = btn.parentElement.parentElement;
-      containerDivs.classList.remove("h-0");
-      await delay(500);
-      containerDivs.remove();
-      let jumlahData = parentsContainer.children.length;
-      DataResult.textContent = jumlahData;
-      localStorage.setItem("JumlahData", DataResult.textContent);
-      localStorage.setItem("containerDiv", parentsContainer.innerHTML);
-      checksizeData();
-    });
-  });
-}
 
 dataMenu.addEventListener('click', function(button) {
   if(button.target && button.target.id === 'OpenData') {
